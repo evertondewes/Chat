@@ -25,3 +25,13 @@ Route::get('message.report',[
 ]);
 
 Route::resource('message', 'MessageController');
+
+Route::get('user',[
+    'as' => 'user',
+    'uses' => 'UserController@index'
+]);
+
+Route::put('/user/update/{user}',[
+    'as' => 'user.update',
+    'uses' => 'UserController@update'
+]);

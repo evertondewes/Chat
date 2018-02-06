@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'role_id'
     ];
 
     /**
@@ -27,8 +27,14 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function messages(){
+    public function messages()
+    {
         return $this->hasMany('\Chat\Message');
+    }
+
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
     }
 
 }
